@@ -39,7 +39,7 @@ module.exports = {
 
     if (req.session.userId===1){
 
-      console.log('userId: ', userId);
+      console.log('userId: ', req.session.userId);
 
       req.session.password = 'hacker!';
     
