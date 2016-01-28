@@ -1,9 +1,25 @@
 $(document).ready(function(){
 
+  var _csrf;
+  $.get('/csrfToken', function( data ) {
+    _csrf = data._csrf;
+    console.log('the csrf token is: ', data);
+  });  
+
   $('#loginButton').click(function(){
 
-    $.post( "/user/login", function( data ) {
-    console.log('session is: ', data.userId);
+    $.ajax({
+      url: '/user/login',
+      type: 'POST',
+      data: { 
+        _csrf: _csrf
+      },
+      success: function(result){
+        console.log('result: ', result);
+      },
+      error: function(xhr, status, err){
+        console.log(err);
+      }
     });
   });
 
@@ -16,8 +32,18 @@ $(document).ready(function(){
 
   $('#resetPassword').click(function(){
 
-    $.post( "/user/resetPassword", function( data ) {
-    console.log('message is: ', data.message);
+    $.ajax({
+      url: '/user/resetPassword',
+      type: 'POST',
+      data: { 
+        _csrf: _csrf
+      },
+      success: function(data){
+        console.log('message is: ', data.message);
+      },
+      error: function(xhr, status, err){
+        console.log(err);
+      }
     });
   });
 
@@ -30,6 +56,6 @@ $(document).ready(function(){
 
   $('#badLink').click(function(){
 
-    window.location = "https://badsite.herokuapp.com"
+    window.location = "https://badsite.herokuapp.com/csrftokenon"
   });
 });
