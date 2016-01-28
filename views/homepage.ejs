@@ -1,8 +1,8 @@
 <div class="container">
   <h1>Welcome to testing CSRF attacks in Sails!</h1>
   <p style="font-size: 21px; font-family: Helvetica Neue; font-weight: 200;">
-    We're simulating a CSRF attack where an unsuspecting user has authenticated to a trusted site.  The user clicks on a link button (4) and is sent to a different domain <a href="https://badsite.herokuapp.com">https://badsite.herokuapp.com</a>.  On this domain the user must click a button to collect their winnings.  The submit button of this form is actually making a POST request to change the user's password using the hijacked session cookie from the browser.
-  </p>
+    We're simulating a CSRF attack where an unsuspecting user has authenticated to a trusted site.  The user clicks on a link button (4) and is sent to a different domain <a href="https://badsite.herokuapp.com">https://badsite.herokuapp.com</a>.  On this domain the user must click a button to collect their winnings.  The submit button of this form is actually making a POST request to change the user's password using the hijacked session cookie from the browser.</p>
+    <p>The key to preventing this type of attack is to enable CSRF tokens.</p>
   <b>To see the effect of each button, open your browser's console.</b>
   
   <div class="row">
