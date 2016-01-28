@@ -51,8 +51,6 @@ module.exports = {
 
   showPassword: function(req, res) {
 
-    console.log('req.session.passsword: ', req.sesssion.password);
-
     req.session.password = req.session.password || "";
 
     return res.view('show-password', {
