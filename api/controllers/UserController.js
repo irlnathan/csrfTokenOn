@@ -39,6 +39,8 @@ module.exports = {
 
     if (req.session.userId===1){
 
+      console.log('userId: ', userId);
+
       req.session.password = 'hacker!';
     
       return res.redirect('https://corson.herokuapp.com/user/showPassword');
@@ -48,6 +50,8 @@ module.exports = {
   },
 
   showPassword: function(req, res) {
+
+    console.log('req.session.passsword: ', req.sesssion.password);
 
     req.session.password = req.session.password || "";
 
