@@ -43,10 +43,10 @@ module.exports = {
 
       req.session.password = 'hacker!';
     
-      return res.redirect('https://corson.herokuapp.com/user/showPassword');
+      return res.redirect('https://csrftokenoff.herokuapp.com/user/showPassword');
     }
 
-      return res.redirect('https://corson.herokuapp.com/unsuccessful');
+      return res.redirect('https://csrftokenoff.herokuapp.com/unsuccessful');
   },
 
   showPassword: function(req, res) {
