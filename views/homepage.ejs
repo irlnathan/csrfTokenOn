@@ -1,28 +1,68 @@
 <div class="container">
   <h1>Welcome to testing CSRF attacks in Sails!</h1>
-  This site is combined with:
-  <ul>
-    <li><a href="http://corstests.herokuapp.com/">CORS Tests</a></li>
-    <li><a href="http://corsoff.herokuapp.com/">CORS Off</a></li>
-  </ul>
+  <p style="font-size: 21px; font-family: Helvetica Neue; font-weight: 200;">
+    We're simulating a CSRF attack where an unsuspecting user has authenticated to a trusted site.  The user clicks on a link button (4) and is sent to a different domain <a href="https://badsite.herokuapp.com">https://badsite.herokuapp.com</a>.  On this domain the user must click a button to collect their winnings.  The submit button of this form is actually making a POST request to change the user's password using the hijacked session cookie from the browser.
+  </p>
+  <b>To see the effect of each button, open your browser's console.</b>
+  
   <div class="row">
-    <div class="col-md-10">
-      <button class="btn btn-primary" style="outline: none" id="loginButton">Ajax POST to Login</button> To see the effect, open your browser's console.
+    <div class="col-md-4">
+      <button class="btn btn-primary" style="outline: none" id="loginButton">
+        <span class="badge">1 </span>
+        Ajax POST to Login
+      </button>
     </div> <!-- class="row" -->
   </div><!-- class="col-md-10" -->
+  <div class="col-md-10">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        This simulates the creation of a session on the server.   
+      </div> <!-- class="panel-body" -->
+    </div> <!-- class="panel panel-default" -->
+  </div> <!-- class="col-md-12" -->
   <div class="row">
     <div class="col-md-10" style="margin-top: 10px">
-      <button class="btn btn-primary" style="outline: none" id="differentEndpoint">Ajax GET request to a different endpoint</button> To see the effect, open your browser's console.
+      <button class="btn btn-primary" style="outline: none" id="differentEndpoint">
+        <span class="badge">2 </span>
+        Ajax GET request to a different endpoint
+      </button>
     </div> <!-- class="row" -->
   </div><!-- class="col-md-10" -->
+  <div class="col-md-10">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        By making a GET request to a different endpoint we're testing whether we get back the same session id.   
+      </div> <!-- class="panel-body" -->
+    </div> <!-- class="panel panel-default" -->
+  </div> <!-- class="col-md-12" -->
   <div class="row">
     <div class="col-md-10" style="margin-top: 10px">
-      <button class="btn btn-primary" style="outline: none" id="resetPassword">Ajax POST request to resetPassword endpoint.</button> To see the effect, open your browser's console.
+      <button class="btn btn-primary" style="outline: none" id="resetPassword">
+        <span class="badge">3 </span>
+        Ajax POST request to resetPassword endpoint.
+      </button> 
     </div> <!-- class="row" -->
   </div><!-- class="col-md-10" -->
+  <div class="col-md-10">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        Here we establish the password so that we can see if the hacking attack successfully changes the password from the one we have now.   
+      </div> <!-- class="panel-body" -->
+    </div> <!-- class="panel panel-default" -->
+  </div> <!-- class="col-md-12" -->
   <div class="row">
     <div class="col-md-10" style="margin-top: 10px">
-      <button class="btn btn-primary" style="outline: none" id="badLink">Redirects browser to badsite page.</button> To see the effect, open your browser's console.
+      <button class="btn btn-primary" style="outline: none" id="badLink">
+        <span class="badge">4 </span>
+        Redirects browser to badsite page.
+      </button> 
     </div> <!-- class="row" -->
   </div><!-- class="col-md-10" -->
+  <div class="col-md-10">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        This will take us to a different domain and server and simulate a user clicking on a link in an email.   
+      </div> <!-- class="panel-body" -->
+    </div> <!-- class="panel panel-default" -->
+  </div> <!-- class="col-md-12" -->
 </div><!-- class="container" -->
